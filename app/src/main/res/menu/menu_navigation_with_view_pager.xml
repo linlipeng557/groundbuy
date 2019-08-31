@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/i_home"
+        android:checked="true"
+        android:icon="@mipmap/tab_icon_home_sel"
+        android:title="部落  " />
+    <item
+        android:id="@+id/i_zk"
+        android:icon="@mipmap/tab_icon_zk_nor"
+        android:title="折扣" />
+    <item
+        android:id="@+id/i_zsz"
+        android:icon="@mipmap/tab_icon_zsz_nor"
+        android:title="折上折" />
+    <item
+        android:id="@+id/i_yd"
+        android:icon="@mipmap/tab_icon_yd_nor"
+        android:title="优店" />
+    <item
+        android:id="@+id/i_wd"
+        android:icon="@mipmap/tab_icon_wd_nor"
+        android:title="我的" />
+</menu>

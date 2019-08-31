@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/colorPrimary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="match_parent"
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:src="@mipmap/home_nav_icon_message"
+                app:layout_constraintBottom_toBottomOf="@+id/search_btn"
+                app:layout_constraintStart_toEndOf="@+id/search_btn"
+                app:layout_constraintTop_toTopOf="@+id/search_btn" />
+
+            <TextView
+                android:id="@+id/search_btn"
+                android:layout_width="296dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="#fff"
+                android:drawableLeft="@mipmap/home_nav_input_icon_search"
+                android:drawablePadding="10dp"
+                android:paddingLeft="11dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="搜索品牌或商品"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="HOME" />
+
+</LinearLayout>
