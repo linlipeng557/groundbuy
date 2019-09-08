@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.blankj.utilcode.util.BarUtils;
 import com.groundbuy.R;
+import com.groundbuy.http.ProgressListener;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
@@ -16,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements ProgressListener {
 
     Unbinder unbinder;
 
@@ -42,11 +43,24 @@ public abstract class BaseFragment extends Fragment {
         return rootView;
     }
 
+    public void  setStatusBarLightMode(boolean isLightMode){
+        BarUtils.setStatusBarLightMode(getActivity(),isLightMode);
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         if (unbinder != null)
             unbinder.unbind();
+    }
 
+    @Override
+    public void showProgressDialog() {
+        // TODO: 2019-09-09 show加载对话框
+    }
+
+    @Override
+    public void dismissProgressDialog() {
+        // TODO: 2019-09-09 dismiss 加载对话框
     }
 }
