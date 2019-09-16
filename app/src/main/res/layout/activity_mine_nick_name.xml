@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="设置昵称"
+        app:rightTitle="保存" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:id="@+id/et_nick"
+        android:hint="取个好听的名字吧~"
+        android:singleLine="true"
+        android:textColor="@color/text_333"
+        android:textColorHint="@color/text_bbb"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="15dp"
+        android:background="@mipmap/mine_sznc_input" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:text="10字符"
+        android:textColor="@color/text_bbb"
+        android:textSize="13sp" />
+</LinearLayout>

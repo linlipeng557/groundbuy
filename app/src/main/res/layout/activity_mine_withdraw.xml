@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="提现"
+        app:dividerShow="false" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_alipay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="支付宝"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_wechat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/text_line_f7"
+            android:gravity="center"
+            android:text="微信"
+            android:textColor="@color/text_333"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="15dp">
+
+        <ImageView
+            android:id="@+id/iv_type"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/mine_tx_icon_ailipay" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_bind"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/mine_tx_icon_bd"
+            android:drawablePadding="15dp"
+            android:gravity="right|center_vertical"
+            android:text="你还没有绑定支付宝账号，快去绑定"
+            android:textColor="@color/text_bbb"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_line_f7_1_margin_15" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="13dp"
+        android:text="提现额度"
+        android:textColor="@color/text_333"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="10dp"
+        android:paddingHorizontal="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥"
+            android:textColor="@color/text_333"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/et_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="@color/text_333"
+            android:textColorHint="@color/text_bbb"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_line_f7_1_margin_15" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp">
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="余额：45000元，"
+            android:textColor="@color/text_999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部提现"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="最低提现为"
+            android:textColor="@color/text_999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2元"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="17dp"
+        android:text="提现说明："
+        android:textColor="@color/text_333"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="18dp"
+        android:text="1、最慢需等3个工作日到账，请耐心等候"
+        android:textColor="@color/text_999"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="2、最低可抵现100元"
+        android:textColor="#ff999999"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="3、单日提现不可超过2万元"
+        android:textColor="#ff999999"
+        android:textSize="13sp" />
+
+    <Space
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tv_apply"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/shape_selector_radius_5_fffc003b"
+        android:gravity="center"
+        android:text="申请提现"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+</LinearLayout>

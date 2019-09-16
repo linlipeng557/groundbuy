@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_whtie_radius_10"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="申请已提交成功！"
+        android:textColor="@color/text_333"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="23dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="35dp"
+        android:gravity="center"
+
+        android:text="我们将在1-3个工作日完成提现审核，请耐心等候！"
+        android:textColor="@color/text_333"
+        android:textSize="13sp" />
+
+    <include layout="@layout/layout_line_f7_1" />
+
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="知道了"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp" />
+</LinearLayout>

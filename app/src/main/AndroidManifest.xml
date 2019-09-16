@@ -2,49 +2,87 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.groundbuy">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <application
-        android:name=".GBApplication"
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".BaseApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.welcome.GuideActivity"></activity>
         <activity
-            android:name=".ui.activity.welcome.WelcomeActivity"
-            android:theme="@style/welcome_activity">
+            android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.goods.GroupGoodsActivity" />
-        <activity android:name=".ui.activity.order.PayActivity" />
-        <activity android:name=".ui.activity.order.SureOrderActivity" />
-        <activity android:name=".ui.activity.msg.MsgContentActivity" />
-        <activity android:name=".ui.activity.SearchActivity" />
-        <activity android:name=".ui.activity.msg.MsgActivity" />
-        <activity android:name=".ui.activity.shop.ShopActivity" />
-        <activity android:name=".ui.activity.AgreementActivity" />
-        <activity android:name=".ui.activity.goods.GoodsDetailsActivity" />
-        <activity android:name=".ui.activity.order.ChooseAddressActivity" />
-        <activity android:name=".ui.activity.order.PayFailureActivity" />
-        <activity android:name=".ui.activity.order.PaySuccessActivity" />
-        <activity android:name=".ui.activity.MainActivity" />
-        <activity android:name=".ui.activity.login.LoginActivity" />
-        <activity android:name=".ui.activity.login.RegisteredSeriesActivity" />
+        <!--<activity android:name=".ui.activity.goods.GroupGoodsActivity" />-->
+        <!--<activity android:name=".ui.activity.order.PayActivity" />-->
+        <!--<activity android:name=".ui.activity.order.SureOrderActivity" />-->
+        <!--<activity android:name=".ui.activity.msg.MsgContentActivity" />-->
+        <!--<activity android:name=".ui.activity.SearchActivity" />-->
+        <!--<activity android:name=".ui.activity.msg.MsgActivity" />-->
+        <!--<activity android:name=".ui.activity.shop.ShopActivity" />-->
+        <!--<activity android:name=".ui.activity.AgreementActivity" />-->
+        <!--<activity android:name=".ui.activity.goods.GoodsDetailsActivity" />-->
+        <!--<activity android:name=".ui.activity.order.ChooseAddressActivity" />-->
+        <!--<activity android:name=".ui.activity.order.PayFailureActivity" />-->
+        <!--<activity android:name=".ui.activity.order.PaySuccessActivity" />-->
+
+        <!--<activity android:name=".ui.activity.login.LoginActivity" />-->
+        <!--<activity android:name=".ui.activity.login.RegisteredSeriesActivity" />-->
+        <activity android:name=".mine_model.activity.MineLogisticsActivity"></activity>
+        <activity android:name=".mine_model.activity.MineRefundOrderActivity" />
+        <activity android:name=".mine_model.activity.MineRefundActivity" />
+        <activity android:name=".mine_model.activity.MineCommontOrderActivity" />
+        <activity android:name=".mine_model.activity.MineApplySaleActivity" />
+        <activity android:name=".mine_model.activity.MineOrderDetailsActivity" />
+        <activity android:name=".mine_model.activity.MineOrderListActivity" />
+        <activity android:name=".mine_model.activity.MineCommentLisActivity" />
+        <activity android:name=".mine_model.activity.MineHelpCenterActivity" />
+        <activity android:name=".mine_model.activity.MineHistoryPugActivity" />
+        <activity android:name=".mine_model.activity.MineCheckInActivity" />
+        <activity android:name=".mine_model.activity.MineEditAddressActivity" />
+        <activity android:name=".mine_model.activity.MineAddressActivity" />
+        <activity android:name=".mine_model.activity.MineSettingPayActivity" />
+        <activity android:name=".mine_model.activity.MineVerifyOldActivity" />
+        <activity android:name=".mine_model.activity.MineChangeAccountActivity" />
+        <activity android:name=".mine_model.activity.MineAboutActivity" />
+        <activity android:name=".mine_model.activity.MineSettingActivity" />
+        <activity android:name=".mine_model.activity.MineCollectActivity" />
+        <activity android:name=".mine_model.activity.MineConvertDetailsActivity" />
+        <activity android:name=".mine_model.activity.MineConvertActivity" />
+        <activity android:name=".mine_model.activity.MineBindAWActivity" />
+        <activity android:name=".mine_model.activity.MineWithdrawActivity" />
+        <activity android:name=".mine_model.activity.MineWalletActivity" />
+        <activity android:name=".mine_model.activity.MineNickNameActivity" />
+        <activity android:name=".mine_model.activity.MinePersonalActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <provider
+            android:name=".MyFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
 
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
-
     </application>
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

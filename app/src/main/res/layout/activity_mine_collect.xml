@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".mine_model.activity.MineCollectActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/view_status"
+        android:layout_height="10dp"
+        android:background="@color/white" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingRight="15dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="42dp"
+            android:layout_height="48dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="13dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="13dp"
+            android:src="@mipmap/mine_back" />
+
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingHorizontal="5dp"
+            android:text="编辑"
+            android:textColor="@color/text_999"
+            android:textSize="13sp" />
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_collect"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#ffffff"
+            app:tabBackground="@drawable/mine_tab_selected"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/colorPrimary" />
+
+    </RelativeLayout>
+    <include layout="@layout/layout_line_f7_1"/>
+
+    <com.groundbuy.mine_model.widgets.SViewPager
+        android:id="@+id/vp_collect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never" />
+
+
+</LinearLayout>

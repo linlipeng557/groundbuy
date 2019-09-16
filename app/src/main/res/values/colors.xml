@@ -3,4 +3,14 @@
     <color name="colorPrimary">#FC003B</color>
     <color name="colorPrimaryDark">#FC003B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_333">#ff333333</color>
+    <color name="text_999">#ff999999</color>
+    <color name="text_aaa">#ffaaaaaa</color>
+    <color name="text_bbb">#BBBBBB</color>
+    <color name="text_a7">#ffa7a7a7</color>
+    <color name="text_9933">#ffff9933</color>
+    <color name="text_line_f7">#fff7f7f7</color>
 </resources>

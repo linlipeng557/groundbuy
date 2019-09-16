@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mine_model.activity.MineRefundActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/mine_th_nav_bg">
+
+        <com.groundbuy.mine_model.widgets.CustomTitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@color/transparent"
+            app:centerTitle="售后"
+            app:centerTitleColor="@color/white"
+            app:dividerShow="false"
+            app:leftImage="@mipmap/mine_bakc_white" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_refund"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

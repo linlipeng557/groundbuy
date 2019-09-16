@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="125dp"
+    android:layout_marginBottom="10dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:paddingHorizontal="15dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="陈小姐"
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="189450343296"
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="15dp"
+        android:text="广东省广州市海珠区琶洲保利世贸C栋2205"
+        android:textColor="@color/text_999"
+        android:textSize="13sp" />
+
+    <include layout="@layout/layout_line_f7_1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="15dp">
+
+        <TextView
+            android:id="@+id/tv_default"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/shape_address_check"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="默认地址"
+            android:textColor="@color/text_999"
+            android:textSize="13sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@mipmap/mine_dzgl_icon_edit"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="编辑"
+            android:textColor="@color/text_999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_del"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:drawableLeft="@mipmap/mine_dzgl_icon_selete"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/text_999"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

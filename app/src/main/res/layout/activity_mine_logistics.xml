@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_line_f7"
+    android:orientation="vertical"
+    tools:context=".mine_model.activity.MineLogisticsActivity">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="物流状态"
+        app:dividerShow="false" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shape_bg_white_radius_5"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="15dp">
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="物流公司："
+            android:textColor="@color/text_999"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_company"
+            android:text="圆通快递"
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_company"
+            android:layout_marginTop="8dp"
+            android:text="物流单号："
+            android:textColor="@color/text_999"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_company_name"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/tv_order"
+            android:text="54650898236145648"
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:background="@drawable/shape_bg_white_radius_5"
+        android:layout_height="wrap_content">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_logistics"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+    </LinearLayout>
+</LinearLayout>

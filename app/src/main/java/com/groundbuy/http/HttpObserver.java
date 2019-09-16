@@ -1,6 +1,8 @@
 package com.groundbuy.http;
 
 
+import com.blankj.utilcode.util.ToastUtils;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -26,6 +28,7 @@ public abstract class HttpObserver<T> implements Observer<HttpResult<T>> {
             onSuccessful(result.getCode(), result.getData(), result.getMsg());
         } else {
             onFailure(result.getCode(), result.getMsg(), null);
+            ToastUtils.showShort(result.getMsg());
         }
 
     }

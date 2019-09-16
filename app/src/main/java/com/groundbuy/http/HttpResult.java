@@ -1,8 +1,10 @@
 package com.groundbuy.http;
 
-public class HttpResult<T> {
-    public static final int SUCCESS_CODE = 200;
-    public static final  int FAIL_CODE = 0;
+import java.io.Serializable;
+
+public class HttpResult<T>  implements Serializable {
+    public static final int SUCCESS_CODE = 0;
+    public static final  int FAIL_CODE = 1;
     String msg;
     int code;
     T data;

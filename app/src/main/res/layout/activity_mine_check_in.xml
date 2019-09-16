@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="242dp"
+        android:background="@mipmap/mine_qd_bg">
+
+        <com.groundbuy.mine_model.widgets.CustomTitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@color/transparent"
+            app:centerTitle="签到"
+            app:centerTitleColor="@color/white"
+            app:dividerShow="false"
+            app:leftImage="@mipmap/mine_bakc_white" />
+
+        <TextView
+            android:id="@+id/tv_integral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            android:text="0UB"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_check_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="13dp"
+            android:background="@mipmap/mine_qd_btn_qd"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:text="签到"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp" />
+
+        <TextView
+
+            android:layout_width="68dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/custom_toolbar"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_mine_right_radius"
+            android:gravity="center"
+            android:text="当前积分"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="45dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_explanation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text=""
+                android:textColor="@color/text_333"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

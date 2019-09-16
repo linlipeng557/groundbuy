@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".mine_model.activity.MineAboutActivity">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="关于我们" />
+
+    <ImageView
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/mine_about_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="优慧眼"
+        android:textColor="#ffff9933"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="版本更新  "
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:text="版本号V0.01"
+            android:id="@+id/tv_version_code"
+            android:textColor="@color/text_999"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="21dp"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/mine_about_tag_new"
+            android:gravity="center"
+            android:text="NEW"
+            android:id="@+id/tv_new"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mine_more" />
+    </LinearLayout>
+
+
+    <include layout="@layout/layout_line_f7_1" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="26dp"
+        android:text="优慧眼科技有限公司是广州本地领先的移动互联网软件开发公司，专业提供APP开发、微信公众号开发、小程序开发、网站建设及企业管理系统开发，经过多年来的技术积累和项目开发经验，尤其擅长直播开发、社交开发、商城开发及物联网开发四大技术领域，亦对其互联网商业模式具备充分与超前的理解，能为客户提供一站式互联网整合解决方案。"
+        android:textColor="#ff333333"
+        android:textSize="14sp" />
+</LinearLayout>

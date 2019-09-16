@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    android:paddingVertical="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingHorizontal="15dp"
+        android:layout_height="40dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_user"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/test_head"
+            app:riv_oval="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_name"
+            android:layout_toRightOf="@id/iv_user"
+            android:text="咸鱼小姐"
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_time"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="2019年08月12日"
+            android:textColor="@color/text_bbb"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/tv_comment"
+        android:paddingHorizontal="15dp"
+        android:text="这包包很好看，很棒很棒，我下次再来购买的，配送也很快
+速，配送人员也很有亲和力~"
+        android:textColor="#ff666666"
+        android:textSize="13sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rv_images"
+        android:paddingHorizontal="12dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        android:background="#F5F5F5"
+        android:paddingHorizontal="15dp"
+        android:paddingRight="10dp"
+        android:layout_height="90dp">
+
+        <ImageView
+            android:id="@+id/iv_goods"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/test_head" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_goods"
+            android:ellipsize="end"
+            android:paddingTop="8dp"
+            android:maxLines="2"
+            android:id="@+id/tv_goods_title"
+            android:text="慵懒风范帆布女单肩包包学生韩版斜跨包慵懒风范帆布女..."
+            android:textColor="#ff333333"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/iv_goods"
+            android:paddingBottom="10dp"
+            android:text="￥39.9"
+            android:textColor="#fffc003b"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_marginLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/tv_price"
+            android:text="￥100"
+            android:id="@+id/tv_old_price"
+            android:textColor="#ffbbbbbb"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</LinearLayout>

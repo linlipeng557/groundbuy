@@ -32,7 +32,8 @@ public abstract class BaseDialog extends AlertDialog {
     }
 
     public BaseDialog(@NonNull Context context) {
-        super(context, R.style.base_dialog);
+    //    super(context, R.style.base_dialog);
+        super(context, 0);
         this.context = context;
     }
 

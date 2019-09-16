@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mine_model.activity.MineConvertDetailsActivity">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="兑换详情" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:overScrollMode="never"
+        android:id="@+id/nest_view"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner_convert"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:image_scale_type="center_crop"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_ub"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="18dp"
+                android:text="3000UB"
+                android:textColor="#ffff9933"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:id="@+id/tv_name"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text="超好用的AHC美肤乳液超好用的AHC美肤乳液超好用的AHC美肤乳液"
+                android:textColor="@color/text_333"
+                android:textSize="14sp" />
+
+            <include layout="@layout/layout_line_f7_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="规格："
+                    android:textColor="@color/text_333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/tv_type"
+                    android:textColor="@color/text_999"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <include layout="@layout/layout_line_f7_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:text="送至"
+                android:textColor="#ff333333"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/mine_dhddxq_address_icon" />
+
+                <TextView
+                    android:id="@+id/tv_address_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="15dp"
+                    android:text="陈小姐"
+                    android:textColor="@color/text_333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_toRightOf="@id/tv_address_name"
+                    android:text="18945032829"
+                    android:textColor="@color/text_999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_address_name"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="13dp"
+                    android:id="@+id/tv_address"
+                    android:text="广东广州市天河区  东圃镇天银大厦"
+                    android:textColor="@color/text_333"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/layout_line_f7_1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="18dp"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/mine_dhddxq_tag_ydh" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_line_f7"
+    android:orientation="vertical">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:overScrollMode="never" />
+
+    <LinearLayout
+        android:id="@+id/ll_no"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/text_line_f7"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="195dp"
+            android:layout_height="195dp"
+            android:src="@mipmap/mine_wddd_icon_null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="暂无相关订单记录"
+            android:textColor="@color/text_999"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

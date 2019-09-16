@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="绑定账号" />
+
+    <ImageView
+        android:layout_width="107dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/mine_bdzh_icon_lock" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/tv_bind_phone"
+        android:text="您已绑定手机号码：+86 1562****067"
+        android:textColor="@color/text_333"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="账号安全"
+        android:textColor="@color/text_333"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tv_change_bind"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="87dp"
+        android:background="@drawable/shape_selector_radius_5_fffc003b"
+        android:gravity="center"
+        android:text="更换绑定"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+</LinearLayout>

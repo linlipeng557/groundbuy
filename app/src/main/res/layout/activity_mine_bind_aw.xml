@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="15dp">
+
+        <ImageView
+            android:id="@+id/iv_type"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/mine_tx_icon_ailipay" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="支付宝账号" />
+
+        <EditText
+            android:id="@+id/et_account"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="right|center_vertical"
+            android:hint="请输入您的支付宝账号"
+            android:textColor="@color/text_333"
+            android:textColorHint="@color/text_bbb"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:src="@mipmap/mine_tx_icon_bd"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/iv_change"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_line_f7_1_margin_15" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="15dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/mine_bdzfb_icon_name" />
+
+        <TextView
+            android:id="@+id/tv_real_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="真实姓名" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="right|center_vertical"
+            android:hint="请输入与您支付宝一致的姓名"
+            android:textColor="@color/text_bbb"
+            android:textColorHint="@color/text_bbb"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_line_f7_1_margin_15" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:text="温馨提示："
+        android:textColor="@color/text_333"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:text="1、请确保值妇保账号已实名认证，并填写真实姓名"
+        android:textColor="@color/text_999"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:text="2、为了保证顺利提现，30天内不要更换其他账号，否则会
+造成提现不通过"
+        android:textColor="@color/text_999"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:text="3、我们承诺不会像任何人透露您的个人信息"
+        android:textColor="@color/text_999"
+        android:textSize="13sp" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tv_bind"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/shape_selector_radius_5_fffc003b"
+        android:gravity="center"
+        android:text="安全绑定"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+</LinearLayout>

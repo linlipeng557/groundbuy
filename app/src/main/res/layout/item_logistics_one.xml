@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="15dp">
+
+    <LinearLayout
+        android:id="@+id/ll_one_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_one_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昨天"
+            android:textColor="@color/selector_logistics_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_one_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09:00"
+            android:textColor="@color/selector_logistics_color"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_one_tag"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ll_one_date">
+
+        <TextView
+            android:id="@+id/tv_one_view"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/select_logistics_radius"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="送"
+            android:textColor="@color/selector_logistics_white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_one_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/rl_one_tag"
+        android:text="已签收"
+        android:textColor="@color/text_333"
+        android:textSize="14sp" />
+
+
+</RelativeLayout>

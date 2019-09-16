@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.groundbuy.mine_model.widgets.SquareImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/iv_images"
+    android:src="@mipmap/test_head"
+    android:scaleType="centerCrop"
+    android:orientation="vertical">
+
+</com.groundbuy.mine_model.widgets.SquareImageView>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.groundbuy.mine_model.widgets.CustomTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerTitle="验证原账号" />
+
+    <LinearLayout
+        android:id="@+id/ll_verify_edit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_verify_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:paddingLeft="52dp"
+            android:text=""
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="52dp"
+            android:id="@+id/et_new_phone"
+            android:background="@color/white"
+            android:hint="请输入手机号码"
+            android:maxLength="11"
+            android:textSize="13sp"
+            android:visibility="invisible" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/view_line"
+            android:layout_marginRight="52dp"
+            android:background="@color/text_line_f7"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="52dp"
+            android:paddingRight="52dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/mine_login_icon_yzm" />
+
+            <EditText
+                android:id="@+id/et_verify"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingLeft="10dp"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/text_line_f7" />
+
+            <TextView
+                android:id="@+id/tv_get_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取验证码"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="52dp"
+            android:background="@color/text_line_f7" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_verify"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginBottom="87dp"
+            android:background="@drawable/shape_selector_radius_5_fffc003b"
+            android:gravity="center"
+            android:text="验证"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_verify_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_verify_phone1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:paddingLeft="52dp"
+            android:text="手机号码：+86 1562****158"
+            android:textColor="@color/text_333"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="99dp"
+            android:layout_height="113dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="59dp"
+            android:src="@mipmap/mine_yzyzh_icon_yz" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/check_1"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/selector_verify_check"
+                android:button="@null" />
+
+            <CheckBox
+                android:id="@+id/check_2"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/selector_verify_check"
+                android:button="@null" />
+
+            <CheckBox
+                android:id="@+id/check_3"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/selector_verify_check"
+                android:button="@null"
+                android:checked="false" />
+
+            <CheckBox
+                android:id="@+id/check_4"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/selector_verify_check"
+                android:button="@null" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:text="验证中~"
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

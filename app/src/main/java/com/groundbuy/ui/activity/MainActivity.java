@@ -7,7 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.groundbuy.R;
 import com.groundbuy.base.BaseActivity;
 import com.groundbuy.ui.fragment.HomeFragment;
-import com.groundbuy.ui.fragment.WDFragment;
+import com.groundbuy.ui.fragment.MineFragment;
 import com.groundbuy.ui.fragment.YDFragment;
 import com.groundbuy.ui.fragment.ZKFragment;
 import com.groundbuy.ui.fragment.ZKZFragment;
@@ -43,8 +43,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     ZKFragment zkFragment;
     ZKZFragment zkzFragment;
     YDFragment ydFragment;
-    WDFragment wdFragment;
+    MineFragment mineFragment;
 
+    @Override
+    public Integer backBtnId() {
+        return null;
+    }
 
     @Override
     public void doMore(@Nullable Bundle savedInstanceState) {
@@ -112,10 +116,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 switchContent(ydFragment);
                 break;
             case R.id.i_wd:
-                if (null == wdFragment) {
-                    wdFragment = new WDFragment();
+                if (null == mineFragment) {
+                    mineFragment = new MineFragment();
                 }
-                switchContent(wdFragment);
+                switchContent(mineFragment);
                 break;
         }
         return false;
