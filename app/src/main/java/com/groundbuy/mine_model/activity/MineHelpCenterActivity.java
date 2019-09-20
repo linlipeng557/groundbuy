@@ -40,12 +40,17 @@ public class MineHelpCenterActivity extends MineBaseActivity<MineCheckInPresente
     }
 
 
-
-
     @Override
     public void singResultSu(CheckInBean bean) {
 
     }
+
+    @Override
+    public void checkedInStatus(CheckInBean bean) {
+
+    }
+
+
 
     @Override
     public void configInfoSu(ConfigBean bean, int i) {

@@ -25,20 +25,26 @@ public class MinePersonalModel extends MineBaseModel<MinePersonalContract.IView>
         super(view);
     }
 
+
+
     @Override
-    public Observable<HttpResult<BaseEntiy>> changeSex(String sex) {
-        HashMap<String,String> map = new HashMap<>();
-        map.put("gender",sex);
-        return apiService.changeSex(getRequestBody(map));
+    public Observable<HttpResult<BaseEntiy>> changeInfo(String sexOrAvatar) {
+        HashMap<String, String> map = new HashMap<>();
+        if ("1".equals(sexOrAvatar)||"0".equals(sexOrAvatar))
+        {
+            map.put("gender", sexOrAvatar);
+        }else {
+            map.put("avatar", sexOrAvatar);
+        }
+
+        return apiService.changeInfo(getRequestBody(map));
     }
 
     @Override
     public Observable<HttpResult<AvatarBean>> updateAvatar(File file) {
-        RequestBody photoRequestBody = RequestBody.create( file,MediaType.parse("image/jpg"));
-        MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), photoRequestBody);
-        List<MultipartBody.Part> list = new ArrayList<>();
-        list.add(body);
-        return apiService.updateAvatar(list);
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
+        return apiService.updateAvatar(body);
     }
 
 

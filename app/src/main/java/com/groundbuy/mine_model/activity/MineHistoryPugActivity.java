@@ -67,12 +67,15 @@ public class MineHistoryPugActivity extends MineBaseActivity<MineHistoryPugPrese
     @Override
     public void dismissDialog() {
         dismissBaseDialog();
+        if (smartRefresh.isRefreshing() || smartRefresh.isLoading()) {
+            smartRefresh.finishLoadMore();
+            smartRefresh.finishRefresh();
+        }
     }
 
     @Override
     public void historyListSu(HistoryListBean bean) {
-        smartRefresh.finishLoadMore();
-        smartRefresh.finishRefresh();
+
         if (bean == null || bean.getBaseData() == null || bean.getBaseData().getList() == null || bean.getBaseData().getList().size() == 0) {
             // tvHint.setText("暂无更多数据");
             smartRefresh.setEnableLoadMore(false);

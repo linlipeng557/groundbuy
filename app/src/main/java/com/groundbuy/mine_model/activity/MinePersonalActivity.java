@@ -17,10 +17,13 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.groundbuy.BaseApplication;
 import com.groundbuy.R;
+import com.groundbuy.http.HttpObserver;
 import com.groundbuy.http.RetrofitHandler;
+import com.groundbuy.http.RxTransformerHelper;
 import com.groundbuy.mine_model.bean.AvatarBean;
 import com.groundbuy.mine_model.bean.BaseEntiy;
 import com.groundbuy.mine_model.bean.UserBean;
+import com.groundbuy.mine_model.event.ChangeAvtartEvent;
 import com.groundbuy.mine_model.event.NickNameEventBus;
 import com.groundbuy.mine_model.mvp.contract.MinePersonalContract;
 import com.groundbuy.mine_model.mvp.model.MinePersonalModel;
@@ -38,9 +41,14 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import top.zibin.luban.CompressionPredicate;
 import top.zibin.luban.Luban;
 import top.zibin.luban.OnCompressListener;
@@ -62,6 +70,7 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
     LinearLayout llSex;
     private BottomSelectDilaog mHeadDialog, mSexDialog;
     private int mSex;
+
     @Override
     public Integer contentViewId() {
         return R.layout.activity_mine_personal;
@@ -85,7 +94,10 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
         } else {
             tvSex.setText("女");
         }
-        Glide.with(this).load(RetrofitHandler.BASE_URL).apply(GlideUtils.getRequestOptions()).into(ivHead);
+        String img = BaseApplication.getUserBean().getBaseData().getPortrait();
+        Glide.with(this).load(BaseApplication.getUserBean().getBaseData().getPortrait()).apply(GlideUtils.getRequestOptions()).into(ivHead);
+
+
     }
 
     @OnClick({R.id.ll_head, R.id.ll_nick, R.id.ll_sex})
@@ -126,13 +138,13 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
                     mSexDialog.setOnSelectListener(new BottomSelectDilaog.OnSelectListener() {
                         @Override
                         public void onTop() {
-                            mSex=0;
+                            mSex = 0;
                             mPresenter.changeSex("0");
                         }
 
                         @Override
                         public void onBottom() {
-                            mSex=1;
+                            mSex = 1;
                             mPresenter.changeSex("1");
                         }
                     });
@@ -168,12 +180,12 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
 
     @Override
     public void showDialog() {
-      showBaseDialog();
+        showBaseDialog();
     }
 
     @Override
     public void dismissDialog() {
-       dismissBaseDialog();
+        dismissBaseDialog();
     }
 
 
@@ -182,12 +194,12 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case UCropUtil.TAKE_PHOTO:
-                    UCropUtil.startUCrop(this, UCropUtil.imageUri);
+                    UCropUtil.startUCropCircle(this, UCropUtil.imageUri);
                     break;
                 case UCropUtil.SUCCESS_CODE:
                     try {
                         if (data != null) {
-                            UCropUtil.startUCrop(this, Matisse.obtainResult(data).get(0));
+                            UCropUtil.startUCropCircle(this, Matisse.obtainResult(data).get(0));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -211,7 +223,7 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
     public void luBanCompress(Uri imageUri1) {
         Luban.with(this)
                 .load(imageUri1)
-                .ignoreBy(200)
+                .ignoreBy(100)
                 .filter(new CompressionPredicate() {
                     @Override
                     public boolean apply(String path) {
@@ -225,7 +237,9 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
 
                     @Override
                     public void onSuccess(File file) {
-                           mPresenter.updateAvatar(file);
+                        mPresenter.updateAvatar(file);
+
+
                     }
 
                     @Override
@@ -241,10 +255,9 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
         UserBean userBean = BaseApplication.getUserBean();
         userBean.getBaseData().setSex(mSex);
         BaseApplication.setUserBean(userBean);
-        if (mSex==0)
-        {
+        if (mSex == 0) {
             tvSex.setText("男");
-        }else {
+        } else {
             tvSex.setText("女");
         }
 
@@ -253,12 +266,17 @@ public class MinePersonalActivity extends MineBaseActivity<MinePersonalPresenter
 
     @Override
     public void updateAvatarSuccess(AvatarBean bean) {
-        Glide.with(this_()).load(RetrofitHandler.BASE_URL+bean.getBaseData()).into(ivHead);
+        Log.d("FFSFSD",""+bean.getBaseData().get(0));
+        UserBean userBean = BaseApplication.getUserBean();
+        userBean.getBaseData().setPortrait(RetrofitHandler.BASE_URL + bean.getBaseData().get(0));
+        BaseApplication.setUserBean(userBean);
+        Glide.with(this_()).load(RetrofitHandler.BASE_URL + bean.getBaseData().get(0)).apply(GlideUtils.getRequestOptions()).into(ivHead);
+        EventBus.getDefault().post(new ChangeAvtartEvent());
+        mPresenter.changeAvatar(bean.getBaseData().get(0));
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void  onEvents(NickNameEventBus eventBus)
-    {
+    public void onEvents(NickNameEventBus eventBus) {
         tvNick.setText(eventBus.getName());
     }
 

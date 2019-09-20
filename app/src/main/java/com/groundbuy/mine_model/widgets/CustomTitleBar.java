@@ -3,6 +3,7 @@ package com.groundbuy.mine_model.widgets;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.Editable;
@@ -76,7 +77,8 @@ public class CustomTitleBar extends ViewGroup {
 
             setImmersive(typedArray.getBoolean(R.styleable.CustomTitleBar_immersiv, false));
             setHeight((int) typedArray.getDimension(R.styleable.CustomTitleBar_titleBarHeight, DEFAULT_TITLE_BAR_HEIGHT * density));
-            setBackgroundColor(typedArray.getColor(R.styleable.CustomTitleBar_backgroundColor, DEFAULT_BACKGROUND_COLOR));
+            setBackgroundColor(typedArray.getColor(R.styleable.CustomTitleBar_backgroundColor,DEFAULT_BACKGROUND_COLOR));
+
             setLeftTitle(typedArray.getString(R.styleable.CustomTitleBar_leftTitle));
             setLeftTitleColor(typedArray.getColor(R.styleable.CustomTitleBar_leftTitleColor, DEFAULT_TITLE_TEXT_COLOR));
             setLeftTitleSize(typedArray.getDimensionPixelSize(R.styleable.CustomTitleBar_leftTitleSize, DEFAULT_LEFT_TITLE_TEXT_SIZE));

@@ -1,6 +1,8 @@
 package com.groundbuy.mine_model.utils;
 
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.method.DigitsKeyListener;
 import android.text.method.NumberKeyListener;
 import android.widget.EditText;
@@ -17,13 +19,13 @@ import java.util.regex.Pattern;
  */
 public class EditTextUtils {
 
-//
-//    /**
-//     * 设置只能输入金额格式
-//     */
-//    public static void editAmount(EditText editText) {
-//        editText.setFilters (new InputFilter[]{new MoneyValueFilter ()});
-//    }
+
+    /**
+     * 设置只能输入金额格式
+     */
+    public static void editAmount(EditText editText) {
+        editText.setFilters (new InputFilter[]{new MoneyValueFilter ()});
+    }
 
     /**
      * 只能输入电话
@@ -62,13 +64,26 @@ public class EditTextUtils {
         });
     }
 
-//    /**
-//     * 不能输入表情
-//     */
-//    public static void editEmoji(EditText editText) {
-//        editText.setFilters (new InputFilter[]{new EmojiFilter ()});
-//
-//    }
+    /**
+     * 不能输入表情
+     */
+    public static void editEmoji(EditText editText) {
+        Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\u4E00-\\u9FA5_,.?!:;…~_\\-\"\"/@*+'()<>{}/[/]()<>{}\\[\\]=%&$|\\/♀♂#¥£¢€\"^` ，。？！：；……～“”、“（）”、（——）‘’＠‘·’＆＊＃《》￥《〈〉》〈＄〉［］￡［］｛｝｛｝￠【】【】％〖〗〖〗／〔〕〔〕＼『』『』＾「」「」｜﹁﹂｀．]");
+
+        editText.setFilters (new InputFilter[]{new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
+                Matcher matcher = pattern.matcher(charSequence);
+                if (!matcher.find()) {
+                    return null;
+                } else {
+                    return "";
+                }
+
+            }
+        }});
+
+    }
 
 //    /**
 //     * 中文32位，英文就1位来算，通常用于昵称等 默认16个
@@ -146,6 +161,5 @@ public class EditTextUtils {
     public static boolean testRegex(String regex, String inputValue) {
         return Pattern.compile (regex).matcher (inputValue).matches ();
     }
-
 
 }

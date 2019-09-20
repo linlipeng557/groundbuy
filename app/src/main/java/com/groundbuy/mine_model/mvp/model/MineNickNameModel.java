@@ -22,6 +22,6 @@ public class MineNickNameModel extends MineBaseModel<MineNickNameContract.IView>
     public Observable<HttpResult<BaseEntiy>> changeNick(String nick) {
         HashMap<String,String> map = new HashMap<>();
         map.put("nickname",nick);
-        return apiService.changeNick(getRequestBody(map));
+        return apiService.changeInfo(getRequestBody(map));
     }
 }

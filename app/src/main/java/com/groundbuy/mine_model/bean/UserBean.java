@@ -70,7 +70,7 @@ public class UserBean implements Serializable {
         private String city;
         private String openid;
         private int sex;
-        private String weixinId;
+        private int weixinId;
         private String weixinName;
         private String mobile;
         private String alipayName;
@@ -78,7 +78,7 @@ public class UserBean implements Serializable {
         private String portrait;
         private int ub;
         private int version;
-        private String deviceId;
+        private int deviceId;
         private String platform;
         private String password;
         private int money;
@@ -87,7 +87,7 @@ public class UserBean implements Serializable {
         private String name;
         private int id;
         private String payPassword;
-        private String alipayId;
+        private int alipayId;
         private int status;
 
         public String getCountry() {
@@ -122,11 +122,11 @@ public class UserBean implements Serializable {
             this.sex = sex;
         }
 
-        public String getWeixinId() {
+        public int getWeixinId() {
             return weixinId;
         }
 
-        public void setWeixinId(String weixinId) {
+        public void setWeixinId(int weixinId) {
             this.weixinId = weixinId;
         }
 
@@ -186,11 +186,11 @@ public class UserBean implements Serializable {
             this.version = version;
         }
 
-        public String getDeviceId() {
+        public int getDeviceId() {
             return deviceId;
         }
 
-        public void setDeviceId(String deviceId) {
+        public void setDeviceId(int deviceId) {
             this.deviceId = deviceId;
         }
 
@@ -258,11 +258,11 @@ public class UserBean implements Serializable {
             this.payPassword = payPassword;
         }
 
-        public String getAlipayId() {
+        public int getAlipayId() {
             return alipayId;
         }
 
-        public void setAlipayId(String alipayId) {
+        public void setAlipayId(int alipayId) {
             this.alipayId = alipayId;
         }
 

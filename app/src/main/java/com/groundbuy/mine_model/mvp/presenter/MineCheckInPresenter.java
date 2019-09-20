@@ -33,12 +33,21 @@ public class MineCheckInPresenter extends MineBasePrestener<MineCheckInContract.
                     @Override
                     public void onSuccessful(int code, CheckInBean result, String msg) {
                         mView.dismissDialog();
-                        mView.singResultSu(result);
+                        if (result.getSingUb()==0&&result.getUbTotal()==0)
+                        {
+                            mView.checkedInStatus(result);
+                        }else {
+                            mView.singResultSu(result);
+                        }
+
+
                     }
 
                     @Override
                     public void onFailure(int code, String msg, Throwable e) {
                         mView.dismissDialog();
+
+
                     }
                 });
     }

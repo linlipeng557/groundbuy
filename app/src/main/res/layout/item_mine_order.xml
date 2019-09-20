@@ -13,14 +13,24 @@
         android:paddingHorizontal="15dp">
 
         <TextView
+            android:id="@+id/tv_shop_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:drawableRight="@mipmap/mine_more"
             android:drawablePadding="10dp"
             android:text="天天包你开心店"
             android:textColor="@color/text_333"
             android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/tv_shop_name"
+            android:src="@mipmap/mine_more" />
+
 
         <TextView
             android:id="@+id/tv_status"
@@ -79,11 +89,11 @@
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/tv_sale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_title"
             android:layout_alignParentRight="true"
-            android:id="@+id/tv_sale"
             android:layout_marginTop="10dp"
             android:text="1件商品正在售后"
             android:textColor="#ffed1731"
@@ -102,6 +112,7 @@
 
         <TextView
 
+            android:id="@+id/tv_old_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -112,6 +123,7 @@
             android:textSize="13sp" />
 
         <TextView
+            android:id="@+id/tv_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -142,6 +154,7 @@
             android:textSize="13sp" />
 
         <TextView
+            android:id="@+id/tv_totoel_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

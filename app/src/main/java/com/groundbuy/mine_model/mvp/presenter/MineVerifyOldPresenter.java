@@ -65,6 +65,7 @@ public class MineVerifyOldPresenter extends MineBasePrestener<MineVerifyOldContr
                     @Override
                     public void onFailure(int code, String msg, Throwable e) {
                         mView.dismissDialog();
+
                     }
                 });
     }

@@ -8,26 +8,42 @@ package com.groundbuy.mine_model.bean;
 public class GetCodeBean {
 
     /**
-     * uuid : qwertyuiop
-     * mobile : 15902064445
+     * baseData : {"mobile":"13794326922","uuid":"5650e0aeced141399a3179784d96898e"}
      */
 
-    private String uuid;
-    private String mobile;
+    private BaseDataBean baseData;
 
-    public String getUuid() {
-        return uuid;
+    public BaseDataBean getBaseData() {
+        return baseData;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setBaseData(BaseDataBean baseData) {
+        this.baseData = baseData;
     }
 
-    public String getMobile() {
-        return mobile;
-    }
+    public static class BaseDataBean {
+        /**
+         * mobile : 13794326922
+         * uuid : 5650e0aeced141399a3179784d96898e
+         */
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+        private String mobile;
+        private String uuid;
+
+        public String getMobile() {
+            return mobile;
+        }
+
+        public void setMobile(String mobile) {
+            this.mobile = mobile;
+        }
+
+        public String getUuid() {
+            return uuid;
+        }
+
+        public void setUuid(String uuid) {
+            this.uuid = uuid;
+        }
     }
 }

@@ -50,6 +50,7 @@ public class MineOrderListActivity extends MineBaseActivity {
         mAdapter = new OrderTypeAdapter(getSupportFragmentManager(), fragmentList);
         vpOrder.setAdapter(mAdapter);
         tabOrder.setupWithViewPager(vpOrder);
+        vpOrder.setOffscreenPageLimit(5);
         if (tag != 0) {
             vpOrder.setCurrentItem(tag);
         }

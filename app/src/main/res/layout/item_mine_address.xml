@@ -50,12 +50,30 @@
         android:gravity="center_vertical"
         android:paddingHorizontal="15dp">
 
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_yes"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/mine_dzgl_radio_sel"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_no"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/mine_dzgl_radio_nor" />
+        </FrameLayout>
+
         <TextView
             android:id="@+id/tv_default"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:drawableLeft="@drawable/shape_address_check"
-            android:drawablePadding="10dp"
+            android:layout_marginLeft="10dp"
             android:gravity="center"
             android:text="默认地址"
             android:textColor="@color/text_999"

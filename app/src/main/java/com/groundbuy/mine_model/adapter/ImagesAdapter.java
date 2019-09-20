@@ -1,8 +1,11 @@
 package com.groundbuy.mine_model.adapter;
 
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.groundbuy.R;
@@ -21,6 +24,6 @@ public class ImagesAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, String item) {
-
+        Glide.with(mContext).load(item).into((ImageView) helper.getView(R.id.iv_images));
     }
 }

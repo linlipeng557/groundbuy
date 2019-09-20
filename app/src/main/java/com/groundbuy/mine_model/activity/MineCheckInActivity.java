@@ -57,7 +57,7 @@ public class MineCheckInActivity extends MineBaseActivity<MineCheckInPresenter> 
 
     @OnClick(R.id.tv_check_in)
     public void onViewClicked() {
-        mPresenter.singResult();
+
     }
 
     @Override
@@ -75,15 +75,23 @@ public class MineCheckInActivity extends MineBaseActivity<MineCheckInPresenter> 
     public void singResultSu(CheckInBean bean) {
         tvIntegral.setText(bean.getUbTotal() + "UB");
         UserBean userBean = BaseApplication.getUserBean();
-        userBean.getBaseData().setUb(bean.getUbTotal() );
+        userBean.getBaseData().setUb(bean.getUbTotal());
         BaseApplication.setUserBean(userBean);
         ToastUtils.showShort("签到成功");
-        tvCheckIn.setText("已签到"+bean.getSingTotal());
+        tvCheckIn.setText("已签到" + bean.getSingTotal()+"天");
+        tvCheckIn.setEnabled(false);
+    }
+
+    @Override
+    public void checkedInStatus(CheckInBean bean) {
+        ToastUtils.showShort("今天你已签到");
+        tvCheckIn.setText("已签到" + bean.getSingTotal()+"天");
         tvCheckIn.setEnabled(false);
     }
 
     @Override
     public void configInfoSu(ConfigBean bean, int type) {
         RichText.fromHtml(bean.getBaseData().getContent()).into(tvExplanation);
+        mPresenter.singResult();
     }
 }

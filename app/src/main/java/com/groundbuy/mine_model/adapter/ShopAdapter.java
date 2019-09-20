@@ -44,7 +44,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopVH> {
     @NonNull
     @Override
     public ShopVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ShopVH(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mine_shop, parent, false));
+        return new ShopVH(LayoutInflater.from(mContext).inflate(R.layout.item_mine_shop, parent, false));
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopVH> {
             holder.checkBox.setVisibility(View.GONE);
         }
 
-        if (mMap.get(position,false)) {
+        if (mMap.get(position, false)) {
             holder.checkBox.setChecked(true);
         } else {
             mMap.put(position, false);
@@ -65,10 +65,11 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopVH> {
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChoose) {
-
+                mMap.put(position, isChoose);
                 if (isChoose) {
                     for (int i = 0; i < mList.size(); i++) {
-                        if (!mMap.get(i,false)) {
+
+                        if (!mMap.get(i, false)) {
                             if (listener != null) {
                                 listener.isAdd(false);
                                 break;
@@ -84,7 +85,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopVH> {
                         listener.isAdd(false);
                     }
                 }
-                mMap.put(position, isChoose);
+
             }
         });
     }
@@ -93,8 +94,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopVH> {
     public int getItemCount() {
         return mList.size();
     }
-
-
 
 
     public static class ShopVH extends RecyclerView.ViewHolder {

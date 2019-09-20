@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.groundbuy.BaseApplication;
 import com.groundbuy.R;
 import com.groundbuy.http.RetrofitHandler;
 import com.groundbuy.mine_model.activity.MineCheckInActivity;
@@ -25,6 +26,7 @@ import com.groundbuy.mine_model.activity.MineRefundActivity;
 import com.groundbuy.mine_model.activity.MineSettingActivity;
 import com.groundbuy.mine_model.activity.MineWalletActivity;
 import com.groundbuy.mine_model.bean.UserBean;
+import com.groundbuy.mine_model.event.ChangeAvtartEvent;
 import com.groundbuy.mine_model.event.NickNameEventBus;
 import com.groundbuy.mine_model.fragment.MineBaseFragment;
 import com.groundbuy.mine_model.mvp.contract.MineContract;
@@ -172,11 +174,17 @@ public class MineFragment extends MineBaseFragment<MinePresenter> implements Min
     public void getUserInfo(UserBean bean) {
         tvName.setText(bean.getBaseData().getName());
         tvWallet.setText("￥" + bean.getBaseData().getMoney());
-        Glide.with(getContext()).load(RetrofitHandler.BASE_URL + bean.getBaseData().getPortrait()).apply(GlideUtils.getRequestOptions()).into(ivUser);
+        Glide.with(getContext()).load(bean.getBaseData().getPortrait()).apply(GlideUtils.getRequestOptions()).into(ivUser);
+
     }
 
     @Override
     public void loginSu(UserBean bean) {
         mPresenter.getUserInfo();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(ChangeAvtartEvent event) {
+        Glide.with(getContext()).load(BaseApplication.getUserBean().getBaseData().getPortrait()).apply(GlideUtils.getRequestOptions()).into(ivUser);
     }
 }

@@ -1,13 +1,16 @@
 package com.groundbuy.mine_model.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.groundbuy.R;
 
 import java.util.List;
@@ -18,15 +21,17 @@ import java.util.List;
  * 创建时间： 2019/9/4
  */
 public class ApplyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<String> mList;
+    private List<Uri> mList;
+    private List<String> mList1;
     private Context mContext;
     private int mTag;
 
-    public ApplyAdapter(Context context, List<String> list, int tag) {
+    public ApplyAdapter(Context context, List<Uri> list, int tag) {
         this.mContext = context;
         this.mList = list;
         this.mTag = tag;
     }
+
 
 
     @NonNull
@@ -62,25 +67,22 @@ public class ApplyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             } else {
                 ApplyImageVH applyImageVH = (ApplyImageVH) holder;
-                applyImageVH.itemView.setOnClickListener(new View.OnClickListener() {
+                Glide.with(mContext).load(mList.get(position)).into(applyImageVH.ivImg);
+                applyImageVH.ivClose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if (listener != null) {
-                            listener.onClick(position);
+                            listener.onDel(position);
                         }
                     }
                 });
+
             }
         } else {
             ApplyImageVH applyImageVH = (ApplyImageVH) holder;
-            applyImageVH.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (listener != null) {
-                        listener.onClick(position);
-                    }
-                }
-            });
+            applyImageVH.ivClose.setVisibility(View.GONE);
+            Glide.with(mContext).load(mList.get(position)).into(applyImageVH.ivImg);
+            applyImageVH.ivClose.setVisibility(View.GONE);
         }
 
     }
@@ -113,9 +115,14 @@ public class ApplyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     public static class ApplyImageVH extends RecyclerView.ViewHolder {
+        private ImageView ivImg;
+
+        private ImageView ivClose;
 
         public ApplyImageVH(@NonNull View itemView) {
             super(itemView);
+            ivImg = itemView.findViewById(R.id.iv_img);
+            ivClose = itemView.findViewById(R.id.iv_close);
         }
     }
 
@@ -127,7 +134,7 @@ public class ApplyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     public interface onChooseListener {
-        void onClick(int position);
+        void onDel(int position);
 
         void onAdd();
     }

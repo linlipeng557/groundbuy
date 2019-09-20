@@ -22,7 +22,9 @@ public interface MinePersonalContract {
     }
 
     interface IModel {
-        Observable<HttpResult<BaseEntiy>> changeSex(String sex);
+        Observable<HttpResult<BaseEntiy>> changeInfo(String sexOrAvatar);
+
+
 
         Observable<HttpResult<AvatarBean>> updateAvatar(File file);
 

@@ -261,7 +261,7 @@
             android:drawableRight="@mipmap/mine_more"
             android:drawablePadding="18dp"
             android:gravity="center"
-            android:text="￥50"
+            android:text=""
             android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
     </RelativeLayout>

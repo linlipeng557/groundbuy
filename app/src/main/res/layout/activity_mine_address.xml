@@ -13,38 +13,66 @@
         android:layout_height="wrap_content"
         app:centerTitle="地址管理" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_address"
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <ImageView
-        android:id="@+id/iv_no_address"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:src="@mipmap/mine_dzgl_icon_null"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/tv_no_address"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
         android:layout_weight="1"
-        android:text="您还没添加地址呢~"
-        android:textColor="#ffcccccc"
-        android:textSize="14sp"
-        android:visibility="gone" />
+        android:visibility="visible">
+
+        <com.scwang.smart.refresh.header.MaterialHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:overScrollMode="never" />
+
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/ll_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_no_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/mine_dzgl_icon_null"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_no_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_no_address"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:text="您还没添加地址呢~"
+            android:textColor="#ffcccccc"
+            android:textSize="14sp"
+            android:visibility="visible" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_add"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@drawable/shape_selector_radius_5_fffc003b"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="添加地址"
         android:textColor="@color/white"

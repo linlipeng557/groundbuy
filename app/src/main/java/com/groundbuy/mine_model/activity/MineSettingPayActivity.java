@@ -206,7 +206,7 @@ public class MineSettingPayActivity extends MineBaseActivity<MineSettingPayPrese
         } else {
             downTime();
         }
-        mUUid = bean.getUuid();
+        mUUid = bean.getBaseData().getUuid();
     }
 
     @Override

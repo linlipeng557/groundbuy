@@ -44,11 +44,11 @@
             android:textSize="14sp" />
 
         <ImageView
-            android:src="@mipmap/mine_tx_icon_bd"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="10dp"
             android:id="@+id/iv_change"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/mine_tx_icon_bd" />
 
 
     </LinearLayout>
@@ -81,7 +81,7 @@
             android:background="@color/white"
             android:gravity="right|center_vertical"
             android:hint="请输入与您支付宝一致的姓名"
-            android:textColor="@color/text_bbb"
+            android:textColor="@color/text_333"
             android:textColorHint="@color/text_bbb"
             android:textSize="14sp" />
 
@@ -139,6 +139,7 @@
         android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/shape_selector_radius_5_fffc003b"
+        android:enabled="false"
         android:gravity="center"
         android:text="安全绑定"
         android:textColor="@color/white"

@@ -24,7 +24,6 @@ public class MineHistoryPugPresenter extends MineBasePrestener<MineHistoryPugCon
                     @Override
                     public void onSubscribe(Disposable d) {
                         super.onSubscribe(d);
-                        mView.showDialog();
                         addDispose(d);
                     }
 

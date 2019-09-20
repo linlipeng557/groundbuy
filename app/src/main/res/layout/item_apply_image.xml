@@ -6,8 +6,18 @@
 
     <com.groundbuy.mine_model.widgets.SquareImageView
         android:layout_width="match_parent"
-        android:src="@mipmap/test_head"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="7dp"
+        android:id="@+id/iv_img"
         android:scaleType="centerCrop"
-        android:layout_height="wrap_content" />
+        android:src="@mipmap/test_head" />
+
+    <ImageView
+        android:src="@mipmap/mine_icon_close"
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv_close"
+        android:layout_width="14dp"
+        android:layout_height="14dp" />
 
 </RelativeLayout>

@@ -53,11 +53,13 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@mipmap/mine_tx_icon_ailipay" />
+
+
         <TextView
-            android:layout_marginLeft="10dp"
             android:id="@+id/tv_account"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:id="@+id/tv_bind"
@@ -67,7 +69,7 @@
             android:drawableRight="@mipmap/mine_tx_icon_bd"
             android:drawablePadding="15dp"
             android:gravity="right|center_vertical"
-            android:text="你还没有绑定支付宝账号，快去绑定"
+            android:text=""
             android:textColor="@color/text_bbb"
             android:textSize="14sp" />
 
@@ -188,9 +190,9 @@
         android:textSize="13sp" />
 
     <Space
-    android:layout_width="wrap_content"
-    android:layout_height="0dp"
-    android:layout_weight="1" />
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/tv_apply"

@@ -21,8 +21,9 @@ public class MinePersonalPresenter extends MineBasePrestener<MinePersonalContrac
         super(view, model);
     }
 
+    //更新性别
     public void changeSex(String sex) {
-        mModel.changeSex(sex)
+        mModel.changeInfo(sex)
                 .compose(RxTransformerHelper.observableIO2Main(mContext))
                 .subscribe(new HttpObserver<BaseEntiy>() {
                     @Override
@@ -47,6 +48,34 @@ public class MinePersonalPresenter extends MineBasePrestener<MinePersonalContrac
                 });
     }
 
+    //更新头像
+    public void changeAvatar(String avatar) {
+        mModel.changeInfo(avatar)
+                .compose(RxTransformerHelper.observableIO2Main(mContext))
+                .subscribe(new HttpObserver<BaseEntiy>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        super.onSubscribe(d);
+                        addDispose(d);
+                        mView.showDialog();
+                    }
+
+                    @Override
+                    public void onSuccessful(int code, BaseEntiy result, String msg) {
+                        mView.dismissDialog();
+                        ToastUtils.showShort(msg);
+                    }
+
+                    @Override
+                    public void onFailure(int code, String msg, Throwable e) {
+
+                        mView.dismissDialog();
+                    }
+
+                });
+    }
+
+    //上传头像
     public void updateAvatar(File file) {
         mView.showDialog();
         mModel.updateAvatar(file)
@@ -60,9 +89,7 @@ public class MinePersonalPresenter extends MineBasePrestener<MinePersonalContrac
 
                     @Override
                     public void onSuccessful(int code, AvatarBean result, String msg) {
-                        mView.dismissDialog();
                         mView.updateAvatarSuccess(result);
-                        ToastUtils.showShort(msg);
                     }
 
                     @Override

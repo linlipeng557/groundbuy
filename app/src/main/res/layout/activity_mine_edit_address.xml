@@ -64,6 +64,9 @@
             android:background="@color/white"
             android:hint="请输入您的手机号码"
             android:textColor="@color/text_333"
+            android:inputType="number"
+            android:maxLength="11"
+            android:singleLine="true"
             android:textSize="14sp" />
     </RelativeLayout>
 
@@ -71,7 +74,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
         android:orientation="horizontal"
         android:paddingHorizontal="15dp">
 
@@ -87,12 +91,12 @@
         <TextView
             android:id="@+id/tv_simple_address"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="80dp"
             android:background="@color/white"
             android:drawableRight="@mipmap/mine_right_back"
             android:drawablePadding="10dp"
-            android:gravity="center_vertical"
             android:hint="请选择您的收货地址"
             android:textColor="@color/text_333"
             android:textSize="14sp" />

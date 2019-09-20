@@ -37,6 +37,7 @@
                     android:background="@drawable/shape_select_check"
                     android:button="@null"
                     android:checked="true"
+                    android:enabled="false"
                     android:visibility="visible" />
 
 

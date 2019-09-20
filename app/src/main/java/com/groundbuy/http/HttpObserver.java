@@ -1,6 +1,8 @@
 package com.groundbuy.http;
 
 
+import android.util.Log;
+
 import com.blankj.utilcode.util.ToastUtils;
 
 import io.reactivex.Observer;
@@ -23,6 +25,7 @@ public abstract class HttpObserver<T> implements Observer<HttpResult<T>> {
 
     @Override
     public void onNext(HttpResult<T> result) {
+
         endRequest();
         if (HttpResult.SUCCESS_CODE == result.getCode()) {
             onSuccessful(result.getCode(), result.getData(), result.getMsg());

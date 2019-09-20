@@ -51,7 +51,7 @@ public class UCropUtil {
     public static void handlepicture(final Activity activity) {
         RxPermissions rxPermissions = new RxPermissions((FragmentActivity) activity);
         rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA).subscribe(granted ->{
+                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA).subscribe(granted -> {
             if (granted) {
 
                 File outputImage = new File(activity.getExternalCacheDir(), System.currentTimeMillis() + ".jpg");
@@ -147,13 +147,13 @@ public class UCropUtil {
     /**
      * 启动裁剪圆形
      *
-     * @param activity     上下文
-     * @param sourceUir    需要裁剪图片的Uri
-     * @param aspectRatioX 裁剪图片宽高比
-     * @param aspectRatioY 裁剪图片宽高比
+     * @param activity  上下文
+     * @param sourceUir 需要裁剪图片的Uri
+     *                  //     * @param aspectRatioX 裁剪图片宽高比
+     *                  //     * @param aspectRatioY 裁剪图片宽高比
      * @return
      */
-    public static void startUCropCircle(Activity activity, Uri sourceUir, float aspectRatioX, float aspectRatioY) {
+    public static void startUCropCircle(Activity activity, Uri sourceUir) {
 
         UCrop.Options options = new UCrop.Options();
         Uri destinationUri = Uri.fromFile(new File(activity.getExternalCacheDir(), System.currentTimeMillis() + "uCrop.jpg"));

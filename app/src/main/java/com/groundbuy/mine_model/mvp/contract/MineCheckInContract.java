@@ -19,7 +19,7 @@ public interface MineCheckInContract {
     interface IView extends MineBaseView {
         void singResultSu(CheckInBean bean);
 
-
+        void  checkedInStatus(CheckInBean bean);
         void configInfoSu(ConfigBean bean, int i);
     }
 

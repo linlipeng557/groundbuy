@@ -68,7 +68,6 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
     private Handler mHanlder;
     private Runnable mRunnable;
     private List<CheckBox> checkBoxList = new ArrayList<>();
-    private int mTag;
     private int mChoose;
     private String mOldPhone;
     private CountDownTimer mTimer;
@@ -79,7 +78,6 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
     public Integer contentViewId() {
         return R.layout.activity_mine_verify_old;
     }
-
 
 
     @Override
@@ -135,8 +133,10 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
                 } else if (!isNewBing) {//验证
                     llVerifyEdit.setVisibility(View.GONE);
                     llVerifyLoad.setVisibility(View.VISIBLE);
+                    mHanlder.post(mRunnable);
                     mPresenter.verifyMobile(etVerify.getText().toString().trim(), mOldUUid);
-                    isNewBing = true;
+
+
                 } else {//开始绑定
                     mPresenter.changeMobile(etNewPhone.getText().toString().trim(), etVerify.getText().toString().trim(), mNewUUid);
                 }
@@ -178,13 +178,14 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
             llVerifyLoad.setVisibility(View.GONE);
             isNewBing = false;
         }
-        showBaseDialog();
+        dismissBaseDialog();
     }
 
 
     @Override
     public void getVerifyCodeSuccess(GetCodeBean bean) {
-        mOldUUid = bean.getUuid();
+        ToastUtils.showShort("获得验证码成功");
+        mOldUUid = bean.getBaseData().getUuid();
         if (mTimer == null) {
             downTime();
         } else {
@@ -194,13 +195,13 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
 
     @Override
     public void verifyMobileSuccess() {
+        isNewBing = true;
         if (mTimer != null) {
             mTimer.cancel();
         }
         tvGetCode.setText("获得验证码");
         if (mHanlder != null && mRunnable != null) {
             mHanlder.removeCallbacksAndMessages(null);
-            mRunnable = null;
             llVerifyEdit.setVisibility(View.VISIBLE);
             llVerifyLoad.setVisibility(View.GONE);
             viewLine.setVisibility(View.VISIBLE);
@@ -210,6 +211,11 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
             tvVerify.setText("确认绑定");
             etVerify.setText("");
             tvVerify.setEnabled(false);
+            if (mTimer!=null)
+            {
+                mTimer.cancel();
+            }
+
         }
 
     }
@@ -230,7 +236,7 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
 
     @Override
     public void getGeneralCodeSuccess(GetCodeBean bean) {
-        mNewUUid = bean.getUuid();
+        mNewUUid = bean.getBaseData().getUuid();
     }
 
     public void downTime() {
@@ -269,7 +275,6 @@ public class MineVerifyOldActivity extends MineBaseActivity<MineVerifyOldPresent
                 mChoose++;
                 if (mChoose == 4) {
                     mChoose = 0;
-                    mTag++;
                 }
                 mHanlder.postDelayed(mRunnable, 300);
 

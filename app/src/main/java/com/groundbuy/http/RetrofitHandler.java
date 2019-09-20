@@ -1,5 +1,6 @@
 package com.groundbuy.http;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.groundbuy.BaseApplication;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.FormBody;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -29,10 +31,11 @@ public class RetrofitHandler {
     private static RetrofitHandler retrofitHandler;
     private static APIService apiService;
 
-  //  private static final String BASE_URL = "http://192.168.2.113:8899";
+    //  private static final String BASE_URL = "http://192.168.2.113:8899";
     public static final String BASE_URL = "http://tuangou.leaf-tech.net:8081/";
     private static final int HTTP_TIME_OUT_TIME = 30;
     private static final boolean IS_DEBUG = true;
+
     private RetrofitHandler() {
         initRetrofit();
     }
@@ -109,17 +112,26 @@ public class RetrofitHandler {
                 }
 
 
+                // Request request = originalRequest.newBuilder().build();
 
-               // Request request = originalRequest.newBuilder().build();
                 //重组
+
                 RequestBody body = originalRequest.body();
+
                 Buffer buffer = new Buffer();
                 body.writeTo(buffer);
                 String oldJsonParams = buffer.readUtf8();
-                Request newRequest = originalRequest.newBuilder().url(originalRequest.url().toString() +oldJsonParams).get().build();
-                Response proceed = chain.proceed(newRequest);
 
-                return proceed;
+                if (oldJsonParams.indexOf("filename") != -1)//上传图片
+                {
+                    Request request = originalRequest.newBuilder().build();
+                    Response proceed = chain.proceed(request);
+                    return proceed;
+                } else {//其他
+                    Request newRequest = originalRequest.newBuilder().url(originalRequest.url().toString() + oldJsonParams).get().build();
+                    Response proceed = chain.proceed(newRequest);
+                    return proceed;
+                }
             }
         };
     }
@@ -129,7 +141,7 @@ public class RetrofitHandler {
      *
      * @return
      */
-    public static  APIService getApiService() {
+    public static APIService getApiService() {
         return apiService;
     }
 }

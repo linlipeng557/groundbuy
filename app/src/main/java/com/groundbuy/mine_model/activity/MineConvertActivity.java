@@ -68,13 +68,13 @@ public class MineConvertActivity extends MineBaseActivity<MineConvertPresenter> 
 
     @Override
     public void showDialog() {
-        showBaseDialog();
+      // showBaseDialog();
     }
 
     @Override
     public void dismissDialog() {
         //dismissBaseDialog();
-        if (smartRefresh.isLoading())
+        if (smartRefresh.isRefreshing())
         {
             smartRefresh.finishLoadMore();
             smartRefresh.finishRefresh();

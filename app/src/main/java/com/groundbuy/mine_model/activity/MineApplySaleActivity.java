@@ -1,5 +1,7 @@
 package com.groundbuy.mine_model.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,11 +24,16 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.groundbuy.R;
 import com.groundbuy.mine_model.adapter.ApplyAdapter;
 import com.groundbuy.mine_model.adapter.ReasonAdapter;
+import com.groundbuy.mine_model.mvp.contract.MineApplyContract;
+import com.groundbuy.mine_model.mvp.model.MineApplyModel;
+import com.groundbuy.mine_model.mvp.presenter.MineApplyPresenter;
 import com.groundbuy.mine_model.mvp.presenter.MineBasePrestener;
+import com.groundbuy.mine_model.utils.UCropUtil;
 import com.groundbuy.mine_model.widgets.GridItemDecoration;
 import com.groundbuy.mine_model.widgets.dialog.ApplyDialog;
 import com.groundbuy.mine_model.widgets.dialog.BottomSelectDilaog;
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.zhihu.matisse.Matisse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +41,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MineApplySaleActivity extends MineBaseActivity {
+public class MineApplySaleActivity extends MineBaseActivity<MineApplyPresenter> implements MineApplyContract.IView {
 
 
     @BindView(R.id.check_box)
@@ -62,6 +70,7 @@ public class MineApplySaleActivity extends MineBaseActivity {
     private BottomSelectDilaog mDialog;
     private int mTag;
     private ReasonAdapter mReasonAdapter;
+    private List<Uri> mList = new ArrayList<>();
 
     @Override
     public Integer contentViewId() {
@@ -69,23 +78,23 @@ public class MineApplySaleActivity extends MineBaseActivity {
     }
 
     @Override
-    protected MineBasePrestener initPresenter() {
-        return null;
+    protected MineApplyPresenter initPresenter() {
+        return new MineApplyPresenter(this, new MineApplyModel(this));
     }
 
     @Override
     public void doMore(@Nullable Bundle savedInstanceState) {
         super.doMore(savedInstanceState);
-        List<String> mList = new ArrayList<>();
-        mList.add("SFDSF");
-        rvApply.setLayoutManager(new GridLayoutManager(this, 4));
         mAdapter = new ApplyAdapter(this, mList, 0);
+        rvApply.setLayoutManager(new GridLayoutManager(this, 4));
         rvApply.addItemDecoration(new GridItemDecoration(SizeUtils.dp2px(7), SizeUtils.dp2px(8)));
         rvApply.setAdapter(mAdapter);
         mAdapter.setOnChooseListener(new ApplyAdapter.onChooseListener() {
-            @Override
-            public void onClick(int position) {
 
+            @Override
+            public void onDel(int position) {
+                mList.remove(position);
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -95,14 +104,20 @@ public class MineApplySaleActivity extends MineBaseActivity {
                     mDialog.setOnSelectListener(new BottomSelectDilaog.OnSelectListener() {
                         @Override
                         public void onTop() {
-                            ToastUtils.showShort("拍照");
-                            mDialog.dismiss();
+                            UCropUtil.handlepicture(this_());
+
                         }
 
                         @Override
                         public void onBottom() {
-                            ToastUtils.showShort("从相册选择");
-                            mDialog.dismiss();
+                            UCropUtil.openAlbum(this_(), 8);
+
+                        }
+                    });
+                    mDialog.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                        @Override
+                        public void onDismiss() {
+                            mDialog.changeBg(1f);
                         }
                     });
                     mDialog.showAtLocation(tvApply, Gravity.BOTTOM, 0, 0);
@@ -116,10 +131,29 @@ public class MineApplySaleActivity extends MineBaseActivity {
     }
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case UCropUtil.TAKE_PHOTO:
+                    mList.add(UCropUtil.imageUri);
+                    mAdapter.notifyDataSetChanged();
+                    break;
+                case UCropUtil.SUCCESS_CODE:
+                    mList.addAll(Matisse.obtainResult(data));
+                    mAdapter.notifyDataSetChanged();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     @OnClick({R.id.tv_apply, R.id.ll_reason})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_apply:
+
                 ApplyDialog dialog = new ApplyDialog(this, "", " 您的售后申请已提交，\n请等待商家审核！");
                 dialog.setonOkClickListener(new ApplyDialog.onOkClickListener() {
                     @Override
@@ -134,9 +168,8 @@ public class MineApplySaleActivity extends MineBaseActivity {
                     ivDown.setImageResource(R.mipmap.mine_sqsh_list_icon_up);
                     if (mReasonAdapter == null) {
                         List<String> mList = new ArrayList<>();
-                        mList.add("发错了");
-                        mList.add("质量问题");
-                        mList.add("款式不一样");
+                        mList.add("未收到货");
+                        mList.add("已收到货");
                         mReasonAdapter = new ReasonAdapter(mList);
                         rvReason.setLayoutManager(new LinearLayoutManager(this));
                         rvReason.setAdapter(mReasonAdapter);
@@ -159,4 +192,18 @@ public class MineApplySaleActivity extends MineBaseActivity {
     }
 
 
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void dismissDialog() {
+
+    }
+
+    @Override
+    public void orderRefund() {
+
+    }
 }

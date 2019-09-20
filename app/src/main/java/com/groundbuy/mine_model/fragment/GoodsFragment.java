@@ -1,6 +1,9 @@
 package com.groundbuy.mine_model.fragment;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -16,6 +19,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.groundbuy.R;
 import com.groundbuy.mine_model.adapter.MineGoodsAdapter;
+import com.groundbuy.mine_model.adapter.ShopAdapter;
 import com.groundbuy.mine_model.bean.CollectGoodsBean;
 import com.groundbuy.mine_model.bean.CollectShopBean;
 import com.groundbuy.mine_model.mvp.contract.ShopOrGoodsContract;
@@ -55,6 +59,7 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
     private List<CollectGoodsBean.BaseDataBean.ListBean> mListBean = new ArrayList<>();
     private int mPage = 1;
     private boolean mIsAdd;
+    private String mArrayStr;
 
     @Override
     public Integer contentViewLayout() {
@@ -73,7 +78,7 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
         llDel.setVisibility(View.GONE);
 
         rvGoods.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new MineGoodsAdapter(mListBean);
+        mAdapter = new MineGoodsAdapter(getContext(), mListBean);
         rvGoods.setAdapter(mAdapter);
         smartRefresh.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
@@ -90,10 +95,20 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
         });
         smartRefresh.autoRefresh();
 
-        mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+        mAdapter.setOnCheckListener(new ShopAdapter.CheckListener() {
             @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-
+            public void isAdd(boolean b) {
+                if (b) {
+                    tvCheckNo.setVisibility(View.GONE);
+                    tvCheckYes.setVisibility(View.VISIBLE);
+                    mIsAdd = false;
+                    tvAdd.setText("取消全选");
+                } else {
+                    tvCheckNo.setVisibility(View.VISIBLE);
+                    tvCheckYes.setVisibility(View.GONE);
+                    mIsAdd = true;
+                    tvAdd.setText("全选");
+                }
             }
         });
 
@@ -105,6 +120,7 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
             case R.id.tv_add:
             case R.id.tv_check_no:
             case R.id.tv_check_yes:
+
                 if (mIsAdd) {
                     mAdapter.addMap();
                     mAdapter.notifyDataSetChanged();
@@ -122,12 +138,22 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
                 }
                 break;
             case R.id.tv_del:
-                for (int i = 0; i < mAdapter.getMap().size(); i++) {
-                    if (mAdapter.getMap().get(i)) {
-                        break;
-                    } else if (i == mAdapter.getMap().size() - 1) {
-                        ToastUtils.showShort("请选择要删除的商品");
+                mArrayStr = "";
+                SparseBooleanArray map = mAdapter.getMap();
+                for (int i = 0; i < map.size(); i++) {
+                    if (map.get(i)) {
+                        if (TextUtils.isEmpty(mArrayStr)) {
+                            mArrayStr = "" + mListBean.get(i).getGoodsId();
+                        } else {
+                            mArrayStr += "&itemId=" + mListBean.get(i).getGoodsId();
+                        }
+
                     }
+                }
+                if (TextUtils.isEmpty(mArrayStr)) {
+                    ToastUtils.showShort("请选择要删除的店铺");
+                } else {
+                    mPresenter.collect("2", "0", mArrayStr);
                 }
                 break;
         }
@@ -141,17 +167,22 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
             llDel.setVisibility(View.GONE);
         }
         mAdapter.clearMap();
+        mAdapter.checkVisible(b);
         mAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void showDialog() {
-        showDialog();
+        showBaseDialog();
     }
 
     @Override
     public void dismissDialog() {
-        dismissDialog();
+        dismissBaseDialog();
+        if (smartRefresh.isRefreshing()) {
+            smartRefresh.finishLoadMore();
+            smartRefresh.finishRefresh();
+        }
     }
 
     @Override
@@ -169,28 +200,23 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
         if (bean == null || bean.getBaseData() == null || bean.getBaseData().getList() == null || bean.getBaseData().getList().size() == 0) {
             // tvHint.setText("暂无更多数据");
             smartRefresh.setEnableLoadMore(false);
+            mAdapter.clearMap();
+            mAdapter.notifyDataSetChanged();
+            mIsAdd = true;
+            tvCheckNo.setVisibility(View.VISIBLE);
+            tvCheckYes.setVisibility(View.GONE);
+            tvAdd.setText("全选");
             return;
         }
 
         if (bean.getBaseData().isFirstPage()) {
+            mAdapter.clearMap();
             mListBean.clear();
+            mIsAdd = true;
+            tvCheckNo.setVisibility(View.VISIBLE);
+            tvCheckYes.setVisibility(View.GONE);
+            tvAdd.setText("全选");
         }
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
-        mListBean.addAll(bean.getBaseData().getList());
         mListBean.addAll(bean.getBaseData().getList());
         if (bean.getBaseData().isLastPage()) {
             smartRefresh.setEnableLoadMore(false);
@@ -198,5 +224,10 @@ public class GoodsFragment extends MineBaseFragment<ShopOrGoodsPresenter> implem
             smartRefresh.setEnableLoadMore(true);
         }
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void collectSu() {
+        smartRefresh.autoRefresh();
     }
 }
